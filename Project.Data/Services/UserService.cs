@@ -21,8 +21,17 @@ namespace Project.Data.Services
     {
       foreach (var item in users)
         if (func(item)) return true;
-      
       return false;
+    }
+
+    public void Add(User user)
+    {
+      using (EFContext context = new EFContext())
+      {
+        context.Users.Add(user);
+        context.SaveChanges();
+        users = context.Users.ToList();
+      }
     }
   }
 }
