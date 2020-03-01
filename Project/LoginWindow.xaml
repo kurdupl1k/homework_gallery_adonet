@@ -13,17 +13,20 @@
     <StackPanel Orientation="Horizontal" Margin="10,15" Height="30">
       <TextBlock Text="Login:" HorizontalAlignment="Center" VerticalAlignment="Center"
          FontSize="14" Margin="10,0"/>
-      <TextBox HorizontalAlignment="Center" VerticalAlignment="Center" Width="200"/>
+      <TextBox HorizontalAlignment="Center" VerticalAlignment="Center" Width="200"
+         Name="txtbx_login"/>
     </StackPanel>
     <StackPanel Orientation="Horizontal" Margin="10,15" Height="30">
       <TextBlock Text="Password:" HorizontalAlignment="Center" 
         VerticalAlignment="Center" FontSize="14" Margin="10,0"/>
-      <TextBox HorizontalAlignment="Center" VerticalAlignment="Center" Width="175"/>
+      <PasswordBox HorizontalAlignment="Center" VerticalAlignment="Center" Width="175"
+         Name="psswrd_password"/>
     </StackPanel>
     <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="200"
       Height="50" Margin="0,15" Content="Enter" Click="Enter_Click"/>
     <TextBlock Text="Don't have account yet? Register now..." 
       TextDecorations="Underline" HorizontalAlignment="Center"
-      VerticalAlignment="Center" FontSize="11"/>
+      VerticalAlignment="Center" FontSize="11"
+      MouseLeftButtonDown="Register_Click"/>
   </StackPanel>
 </Window>
