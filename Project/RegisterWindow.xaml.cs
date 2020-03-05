@@ -1,11 +1,19 @@
 ﻿using System.Windows;
 using System.Windows.Input;
+using Project.Data.Models;
+using Project.Data.Services;
 
 namespace Project
 {
   public partial class RegisterWindow : Window
   {
-    public RegisterWindow() { InitializeComponent(); }
+    private UserService user_service;
+
+    public RegisterWindow()
+    {
+      InitializeComponent();
+      user_service = new UserService();
+    }
 
     private void Confirm_Click(object sender, RoutedEventArgs e)
     {
@@ -27,6 +35,8 @@ namespace Project
         return;
       }
       else password = psswrdbx1.Password;
+
+      user_service.Add(new User() { Login = login, Password = password });
     }
 
     private void Login_Click(object sender, MouseButtonEventArgs e)
