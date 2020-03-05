@@ -7,13 +7,13 @@ namespace Project.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.0")]
-    public sealed partial class addedtblUsersandtblImagestodatabase : IMigrationMetadata
+    public sealed partial class addedtblImagesandtblUserstodatabase : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addedtblUsersandtblImagestodatabase));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(addedtblImagesandtblUserstodatabase));
         
         string IMigrationMetadata.Id
         {
-            get { return "202002292316239_added tblUsers and tblImages to database"; }
+            get { return "202003051833038_added tblImages and tblUsers to database"; }
         }
         
         string IMigrationMetadata.Source

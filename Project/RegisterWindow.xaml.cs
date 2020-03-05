@@ -7,7 +7,7 @@ namespace Project
 {
   public partial class RegisterWindow : Window
   {
-    private UserService user_service;
+    private IService<User> user_service;
 
     public RegisterWindow()
     {

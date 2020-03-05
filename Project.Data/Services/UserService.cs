@@ -1,27 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using Project.Data.Models;
 
 namespace Project.Data.Services
 {
-  public class UserService
+  public class UserService : IService<User>
   {
-    private List<User> users;
+    public UserService() { }
 
-    public UserService()
+    public bool Exist(Func<User, bool> func)
     {
       using (EFContext context = new EFContext())
-        users = context.Users.ToList();
-    }
-
-    public List<User> GetAll() { return users; }
-
-    public bool Exists(Func<User, bool> func)
-    {
-      foreach (var item in users)
-        if (func(item)) return true;
-      return false;
+        return context.Users.Any(func);
     }
 
     public void Add(User user)
@@ -30,7 +20,6 @@ namespace Project.Data.Services
       {
         context.Users.Add(user);
         context.SaveChanges();
-        users = context.Users.ToList();
       }
     }
   }

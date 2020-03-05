@@ -9,12 +9,13 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Project.Data</RootNamespace>
     <AssemblyName>Project.Data</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -48,6 +49,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -56,24 +58,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\202002292316239_added tblUsers and tblImages to database.cs" />
-    <Compile Include="Migrations\202002292316239_added tblUsers and tblImages to database.designer.cs">
-      <DependentUpon>202002292316239_added tblUsers and tblImages to database.cs</DependentUpon>
+    <Compile Include="Helpers\CompressImage.cs" />
+    <Compile Include="Migrations\202003051833038_added tblImages and tblUsers to database.cs" />
+    <Compile Include="Migrations\202003051833038_added tblImages and tblUsers to database.designer.cs">
+      <DependentUpon>202003051833038_added tblImages and tblUsers to database.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\EFContext.cs" />
     <Compile Include="Models\Image.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ImageService.cs" />
+    <Compile Include="Services\IService.cs" />
     <Compile Include="Services\UserService.cs" />
+    <Compile Include="DTO\ImageViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202002292316239_added tblUsers and tblImages to database.resx">
-      <DependentUpon>202002292316239_added tblUsers and tblImages to database.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202003051833038_added tblImages and tblUsers to database.resx">
+      <DependentUpon>202003051833038_added tblImages and tblUsers to database.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

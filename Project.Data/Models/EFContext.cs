@@ -7,5 +7,6 @@ namespace Project.Data.Models
     public EFContext() : base("DbConnection") { }
 
     public DbSet<User> Users { get; set; }
+    public DbSet<Image> Images { get; set; }
   }
 }
