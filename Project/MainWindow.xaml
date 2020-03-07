@@ -5,8 +5,26 @@
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   xmlns:local="clr-namespace:Project"
   mc:Ignorable="d"
-  Title="MainWindow" Height="450" Width="800">
+  Title="MainWindow" Height="450" Width="800" FontFamily="Lucida Console">
   <Grid>
-
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition/>
+      <ColumnDefinition/>
+    </Grid.ColumnDefinitions>
+    <DataGrid Name="dg_photos" Grid.Column="0" Margin="30" Loaded="dg_photos_Loaded">
+      <DataGrid.Columns>
+        <DataGridTextColumn Binding="{Binding Path=Id}" Header="Id"/>
+        <DataGridTemplateColumn Header="Photo">
+          <DataGridTemplateColumn.CellTemplate>
+            <DataTemplate>
+              <Image Source="{Binding Path=Image}" Width="100" Height="100"/>
+            </DataTemplate>
+          </DataGridTemplateColumn.CellTemplate>
+        </DataGridTemplateColumn>
+      </DataGrid.Columns>
+    </DataGrid>
+    <UniformGrid Grid.Column="1">
+      <Button Content="Add photo" Margin="100,150" Click="Add_Click"/>
+    </UniformGrid>
   </Grid>
 </Window>

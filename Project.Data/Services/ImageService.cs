@@ -10,7 +10,7 @@ namespace Project.Data.Services
 {
   public class ImageService
   {
-    public bool Exist(Func<Models.Image, bool> func)
+    public bool Exists(Func<Models.Image, bool> func)
     {
       using (EFContext context = new EFContext())
         return context.Images.Any(func);
