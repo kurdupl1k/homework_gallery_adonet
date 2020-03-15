@@ -2,13 +2,14 @@
 using Microsoft.Win32;
 using Project.Data.Models;
 using Project.Data.Services;
+using Project.Data.ViewModels;
 
 namespace Project
 {
   public partial class MainWindow : Window
   {
-    private UserService user_service;
     private User current_user;
+    private ImageService image_service;
 
     public MainWindow()
     {
@@ -30,11 +31,12 @@ namespace Project
       {
         if (result == true)
         {
-
-        }
-        else
-        {
-
+          foreach (var elem in file_dialog.FileNames)
+            image_service.Add(new ImageDTO()
+            {
+              Name = elem,
+              Path = elem
+            });
         }
       }
     }

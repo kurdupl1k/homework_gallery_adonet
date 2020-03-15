@@ -20,14 +20,14 @@ namespace Project.Data.Services
     {
       using (EFContext context = new EFContext())
       {
-        string imageName = Guid.NewGuid().ToString() + ".jpg";
+        string image_name = Guid.NewGuid().ToString() + ".jpg";
         System.Drawing.Image img = System.Drawing.Image.FromFile(elem.Path);
         img = CompressImage.CreateImage((Bitmap)img, 500, 500);
-        img.Save(Environment.CurrentDirectory + "//" + imageName, ImageFormat.Jpeg);
+        img.Save(Environment.CurrentDirectory + "//" + image_name, ImageFormat.Jpeg);
 
         Models.Image image = new Models.Image()
         {
-          Source = imageName,
+          Source = image_name,
           UserId = elem.UserId
         };
 

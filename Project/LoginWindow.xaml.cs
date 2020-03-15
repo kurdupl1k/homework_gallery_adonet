@@ -33,10 +33,10 @@ namespace Project
 
     private void Register_Click(object sender, MouseButtonEventArgs e)
     {
-      Close();
-
       RegisterWindow register_window = new RegisterWindow();
       register_window.Show();
+
+      Close();
     }
   }
 }
