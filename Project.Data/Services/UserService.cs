@@ -11,13 +11,17 @@ namespace Project.Data.Services
     public bool Exists(Func<User, bool> func)
     {
       using (EFContext context = new EFContext())
+      {
         return context.Users.Any(func);
+      }
     }
 
     public User Find(Func<User, bool> func)
     {
       using (EFContext context = new EFContext())
+      {
         return context.Users.FirstOrDefault(func);
+      }
     }
 
     public void Add(User user)

@@ -4,8 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Project.Data.Models
 {
-  [Table("tblUsers")]
-  public class User
+  [Table("tblUsers")] public class User
   {
     [Key] public int Id { get; set; }
     [Required, StringLength(100)] public string Login { get; set; }

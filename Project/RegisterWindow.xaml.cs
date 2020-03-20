@@ -7,44 +7,60 @@ namespace Project
 {
   public partial class RegisterWindow : Window
   {
-    private IService<User> user_service;
+    private IService<User> userService;
 
     public RegisterWindow()
     {
       InitializeComponent();
-      user_service = new UserService();
+      userService = new UserService();
     }
 
     private void Confirm_Click(object sender, RoutedEventArgs e)
     {
-      string login;
-      string password;
+      string login, password;
 
       if (txtbx_login1.Text != txtbx_login2.Text)
       {
-        MessageBox.Show("logins are different!", "error", MessageBoxButton.OK,
+        MessageBox.Show("Logins are different!", "Error", MessageBoxButton.OK,
           MessageBoxImage.Error);
         return;
       }
-      else login = txtbx_login1.Text;
+      else
+      {
+        login = txtbx_login1.Text;
+      }
 
       if (psswrdbx1.Password != psswrdbx2.Password)
       {
-        MessageBox.Show("passwords are different!", "error",
+        MessageBox.Show("Passwords are different!", "Error",
           MessageBoxButton.OK, MessageBoxImage.Error);
         return;
       }
-      else password = psswrdbx1.Password;
+      else
+      {
+        password = psswrdbx1.Password;
+      }
 
-      user_service.Add(new User() { Login = login, Password = password });
+      userService.Add(new User()
+      {
+        Login = login,
+        Password = password
+      });
+
+      if (MessageBox.Show("Account has been created!", "Success!",
+        MessageBoxButton.OK, MessageBoxImage.Asterisk) == MessageBoxResult.OK)
+      {
+        Login_Click(null, null);
+        Close();
+      }
     }
 
     private void Login_Click(object sender, MouseButtonEventArgs e)
     {
-      Close();
+      LoginWindow loginWindow = new LoginWindow();
+      loginWindow.Show();
 
-      LoginWindow login_window = new LoginWindow();
-      login_window.Close();
+      Close();
     }
   }
 }

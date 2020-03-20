@@ -38,16 +38,16 @@ namespace Project.Data.Helpers
             width = (int)Math.Round((width / divider));
           }
         }
-        using (Bitmap out_bitmap = new Bitmap(width, height, PixelFormat.Format16bppRgb555))
+        using (Bitmap outBitmap = new Bitmap(width, height, PixelFormat.Format16bppRgb555))
         {
-          using (Graphics out_graphics = Graphics.FromImage(out_bitmap))
+          using (Graphics outGraphics = Graphics.FromImage(outBitmap))
           {
-            out_graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-            out_graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode
+            outGraphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            outGraphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode
               .HighQualityBicubic;
-            out_graphics.DrawImage(originalPic, 0, 0, width, height);
+            outGraphics.DrawImage(originalPic, 0, 0, width, height);
 
-            return new Bitmap(out_bitmap);
+            return new Bitmap(outBitmap);
           }
         }
       }

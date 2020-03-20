@@ -1,12 +1,16 @@
 ﻿namespace Project.Data.Migrations
 {
   using System.Data.Entity.Migrations;
-  using Project.Data.Models;
 
-  internal sealed class Configuration : DbMigrationsConfiguration<EFContext>
+  internal sealed class Configuration : DbMigrationsConfiguration<Models.EFContext>
   {
-    public Configuration() { AutomaticMigrationsEnabled = false; }
+    public Configuration()
+    {
+      AutomaticMigrationsEnabled = false;
+    }
 
-    protected override void Seed(EFContext context) { }
+    protected override void Seed(Models.EFContext context)
+    {
+    }
   }
 }

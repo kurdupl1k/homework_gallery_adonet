@@ -8,35 +8,38 @@ namespace Project
 {
   public partial class MainWindow : Window
   {
-    private User current_user;
-    private ImageService image_service;
+    private User currentUser;
+    private ImageService imageService;
 
     public MainWindow()
     {
       InitializeComponent();
-      current_user = LoginWindow.current_user;
+      imageService = new ImageService();
+      currentUser = LoginWindow.currentUser;
     }
 
     private void dg_photos_Loaded(object sender, RoutedEventArgs e)
     {
-      dg_photos.ItemsSource = current_user.Images;
+      dg_photos.ItemsSource = currentUser.Images;
     }
 
     private void Add_Click(object sender, RoutedEventArgs e)
     {
-      OpenFileDialog file_dialog = new OpenFileDialog();
-      bool? result = file_dialog.ShowDialog();
+      OpenFileDialog fileDialog = new OpenFileDialog();
+      bool? result = fileDialog.ShowDialog();
 
       if (result != null)
       {
         if (result == true)
         {
-          foreach (var elem in file_dialog.FileNames)
-            image_service.Add(new ImageDTO()
+          foreach (var elem in fileDialog.FileNames)
+          {
+            imageService.Add(new ImageDTO()
             {
               Name = elem,
-              Path = elem
+              Path = elem,
             });
+          }
         }
       }
     }

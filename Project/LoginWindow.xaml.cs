@@ -8,33 +8,36 @@ namespace Project
 {
   public partial class LoginWindow : Window
   {
-    private UserService user_service;
-    public static User current_user;
+    private UserService userService;
+    public static User currentUser;
 
     public LoginWindow()
     {
       InitializeComponent();
-      user_service = new UserService();
+      userService = new UserService();
     }
 
     private void Enter_Click(object sender, RoutedEventArgs e)
     {
-      Func<User, bool> lambda = x => x.Login == txtbx_login.Text &&
-        x.Password == psswrd_password.Password;
+      Func<User, bool> lambda = (x => x.Login == txtbx_login.Text &&
+        x.Password == psswrd_password.Password);
 
-      if (user_service.Exists(lambda))
+      if (userService.Exists(lambda))
       {
-        current_user = user_service.Find(lambda);
-        MainWindow main_window = new MainWindow();
+        currentUser = userService.Find(lambda);
+        MainWindow mainWindow = new MainWindow();
       }
-      else MessageBox.Show("Login or password is incorrect!",
-        "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+      else
+      {
+        MessageBox.Show("Login or password is incorrect!",
+          "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+      }
     }
 
     private void Register_Click(object sender, MouseButtonEventArgs e)
     {
-      RegisterWindow register_window = new RegisterWindow();
-      register_window.Show();
+      RegisterWindow registerWindow = new RegisterWindow();
+      registerWindow.Show();
 
       Close();
     }
